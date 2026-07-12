@@ -3,7 +3,7 @@ import { aboutData } from "../data/languages";
 import React, { useState, useEffect, useRef } from "react";
 
 // Import gambar untuk section About
-import rc1 from "../images/rc1.JPG";
+import rc1 from "../images/rc1.jpg";
 // Import icon khusus untuk Core Values (menggunakan FontAwesome 6)
 import { FaRocket, FaCompass, FaArrowTrendUp } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
