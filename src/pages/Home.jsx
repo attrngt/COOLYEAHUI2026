@@ -3,13 +3,13 @@ import { languageData } from "../data/languages";
 import { Link } from "react-router-dom";
 import MediaPartner from "../components/MediaPartner";
 
-import rc1 from "../images/rc1.JPG";
+import rc1 from "../images/rc1.jpg";
 import rc2 from "../images/rc2.jpeg";
-import rc3 from "../images/rc3.JPG";
-import rc4 from "../images/rc4.JPG";
-import rc5 from "../images/rc5.JPG";
-import rc6 from "../images/rc6.JPG";
-import rc7 from "../images/rc7.JPG";
+import rc3 from "../images/rc3.jpg";
+import rc4 from "../images/rc4.jpg";
+import rc5 from "../images/rc5.jpg";
+import rc6 from "../images/rc6.jpg";
+import rc7 from "../images/rc7.jpg";
 
 
 // Terima 'language' sebagai props dari App.jsx
