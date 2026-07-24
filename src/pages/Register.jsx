@@ -2,6 +2,13 @@ import { FaArrowDown } from "react-icons/fa6";
 import { registerEvents } from "../data/registerEvents";
 
 export default function Register() {
+  const handleScrollToEvents = (e) => {
+    e.preventDefault(); // Mencegah lompatan default dari anchor tag
+    const element = document.getElementById("events");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <main className="bg-white">
       {/* ================= HERO ================= */}
@@ -30,6 +37,7 @@ export default function Register() {
           <div className="mt-16 flex justify-center">
             <a
               href="#events"
+              onClick={handleScrollToEvents}
               className="inline-flex items-center gap-3 text-brand-orange hover:text-orange-300 transition"
             >
               <span className="uppercase tracking-wider text-sm">
@@ -47,7 +55,7 @@ export default function Register() {
       <section id="events" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="font-headline italic uppercase text-4xl md:text-5xl text-brand-dark mb-6">
+            <h2 className="font-headline italic uppercase text-4xl md:text-5xl text-brand-dark mb-6 mt-5">
               START YOUR JOURNEY
             </h2>
 

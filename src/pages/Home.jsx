@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { languageData } from "../data/languages";
 import { Link } from "react-router-dom";
 import MediaPartner from "../components/MediaPartner";
+import { registerEvents } from "../data/registerEvents";
 
-import rc1 from "../images/rc1.jpg";
 import rc2 from "../images/rc2.jpeg";
 import rc3 from "../images/rc3.jpg";
 import rc4 from "../images/rc4.jpg";
 import rc5 from "../images/rc5.jpg";
 import rc6 from "../images/rc6.jpg";
-import rc7 from "../images/rc7.jpg";
-
 
 // Terima 'language' sebagai props dari App.jsx
 export default function Home({ language }) {
@@ -24,98 +22,22 @@ export default function Home({ language }) {
     }
   };
 
-
   // State language dan fungsinya sudah dihapus dari sini
 
   const text = languageData[language];
 
-  const eventSeries = [
-    {
-      id: 1,
-      title: "COOLYEAH CLASS",
-      description: text.eventDescriptions.class,
-      image: rc1,
-      topics: [
-        "Personal Branding & Networking",
-        "Creative & Critical Thinking",
-      ],
-      benefits: ["Official Certificate", "Benefit 2", "Benefit 3", "Benefit 4"],
-      speakers: [
-        { image: null, name: "TBA", title: "TBA" },
-        { image: null, name: "TBA", title: "TBA" },
-      ],
-    },
-    {
-      id: 2,
-      title: "COOLYEAH CLASS PRO",
-      description: text.eventDescriptions.pro,
-      image: rc4,
-      topics: [
-        "Digital Asset & Stock Investment",
-        "Digital Bussiness & E-Commerce Strategy",
-        "Data Analysis with Microsoft Excel",
-      ],
-      benefits: ["Official Certificate", "Benefit 2", "Benefit 3", "Benefit 4"],
-      speakers: [
-        { image: null, name: "TBA", title: "TBA" },
-        { image: null, name: "TBA", title: "TBA" },
-      ],
-    },
-    {
-      id: 3,
-      title: "COOLYEAH CLASS EXPERT",
-      description: text.eventDescriptions.expert,
-      image: rc7,
-      topics: ["Human Resources and Talent Development", "Digital Marketing"],
-      benefits: ["Official Certificate", "Benefit 2", "Benefit 3", "Benefit 4"],
-      speakers: [
-        { image: null, name: "TBA", title: "TBA" },
-        { image: null, name: "TBA", title: "TBA" },
-      ],
-    },
-    {
-      id: 4,
-      title: "GRAND CLOSING X TALKSHOW",
-      description: text.eventDescriptions.closing,
-      image: rc2,
-      benefits: ["Official Certificate", "Benefit 2", "Benefit 3", "Benefit 4"],
-      speakers: [
-        { image: null, name: "TBA", title: "TBA" },
-        { image: null, name: "TBA", title: "TBA" },
-      ],
-    },
-  ];
+  const eventSeries = registerEvents.map((event) => ({
+    ...event,
+    description: text.eventDescriptions[event.descriptionKey] ?? "",
+  }));
 
-  const timelineData = [
-    {
-      id: 1,
-      event: "COOLYEAH CLASS",
-      registration: "Open Registration 13 July 2026",
-      date: "25 July 2026",
-      location: "Universitas Indonesia",
-    },
-    {
-      id: 2,
-      event: "COOLYEAH CLASS PRO",
-      registration: "TBA",
-      date: "TBA",
-      location: "Universitas Indonesia",
-    },
-    {
-      id: 3,
-      event: "COOLYEAH CLASS EXPERT",
-      registration: "TBA",
-      date: "TBA",
-      location: "Universitas Indonesia",
-    },
-    {
-      id: 4,
-      event: "GRAND CLOSING x TALKSHOW",
-      registration: "TBA",
-      date: "TBA",
-      location: "Universitas Indonesia",
-    },
-  ];
+  const timelineData = eventSeries.map((event) => ({
+    id: event.id,
+    event: event.title,
+    registration: event.registration,
+    date: event.eventDate,
+    location: event.location,
+  }));
 
   const recapPhotos = [rc3, rc2, rc6, rc4, rc5];
 
@@ -187,7 +109,7 @@ export default function Home({ language }) {
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative animate-[fadeIn_0.3s_ease-out] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative animate-[fadeIn_0.3s_ease-out] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -402,7 +324,6 @@ export default function Home({ language }) {
       </section>
 
       {/* ================= FOOTER ================= */}
-      
     </div>
   );
 }

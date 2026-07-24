@@ -36,19 +36,29 @@ export const speakers = {
   },
 
   jason: {
-    image: null,
+    image: speakerImages.sp3,
     name: "Jason Nathanael",
     title:
       "Founder Of Macro Journal and Investment Educator & Financial Content Creator",
   },
 
   christina: {
-    image: null,
+    image: speakerImages.sp4,
     name: "Christina Yaori",
     title:
       "Founder & CEO of SellerUP Academy and Chief Business Officer at ENTROPI",
   },
 
+    tantut: {
+      image: speakerImages.sp5,
+      name: "Tantut Wahyu Setyoko",
+      title: "Assistant Manager Data Scientist at Bank Mega",
+    },
+    ardi: {
+      image: speakerImages.sp6,
+      name: "Moch Ardi Firmansyah",
+      title: "Professional Excel Trainer with 10,000+ Participants and People Services & Analytics at Lintasarta",
+    },
   //   : {
   //     image: null,
   //     name: "",
